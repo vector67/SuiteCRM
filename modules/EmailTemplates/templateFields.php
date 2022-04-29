@@ -44,13 +44,15 @@ function generateFieldDefsJS2()
 
     foreach ($app_list_strings['moduleList'] as $key => $name) {
         if (isset($beanList[$key]) && isset($beanFiles[$beanList[$key]]) && !str_begin($key, 'AOW_')) {
-            require_once($beanFiles[$beanList[$key]]);
-            $focus = new $beanList[$key];
-            $loopControl[$key][$key] = $focus;
-            $prefixes[$key] = strtolower($focus->object_name) . '_';
-            if ($focus->object_name == 'Case') {
-                $prefixes[$key] = 'a' . strtolower($focus->object_name) . '_';
-            }
+            if (file_exists($beanFiles[$beanList[$key]])) {
+				require_once($beanFiles[$beanList[$key]]);
+				$focus = new $beanList[$key];
+				$loopControl[$key][$key] = $focus;
+				$prefixes[$key] = strtolower($focus->object_name) . '_';
+				if ($focus->object_name == 'Case') {
+					$prefixes[$key] = 'a' . strtolower($focus->object_name) . '_';
+				}
+			}
         }
     }
 

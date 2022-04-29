@@ -661,14 +661,13 @@ function get_language_display($key)
 
 function get_assigned_user_name($assigned_user_id, $is_group = '')
 {
-    static $saved_user_list = null;
+	if ($assigned_user_id == '') {
+		return '';
+	}
+    $user_list = get_user_array(false, '', $assigned_user_id, false, null, $is_group);
 
-    if (empty($saved_user_list)) {
-        $saved_user_list = get_user_array(false, '', '', false, null, $is_group);
-    }
-
-    if (isset($saved_user_list[$assigned_user_id])) {
-        return $saved_user_list[$assigned_user_id];
+    if (isset($user_list[$assigned_user_id])) {
+        return $user_list[$assigned_user_id];
     }
 
     return '';
@@ -751,7 +750,7 @@ function get_user_array($add_blank = true, $status = 'Active', $user_id = '', $u
             $query .= " AND user_name LIKE '$user_name_filter%' ";
         }
         if (!empty($user_id)) {
-            $query .= " OR id='{$user_id}'";
+            $query .= " AND id='{$user_id}'";
         }
 
         //get the user preference for name formatting, to be used in order by

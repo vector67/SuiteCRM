@@ -884,11 +884,13 @@ function getEmailableModules()
     $emailableModules = array();
     foreach ($app_list_strings['aow_moduleList'] as $bean_name => $bean_dis) {
         if (isset($beanList[$bean_name]) && isset($beanFiles[$beanList[$bean_name]])) {
-            require_once($beanFiles[$beanList[$bean_name]]);
-            $obj = new $beanList[$bean_name];
-            if ($obj instanceof Person || $obj instanceof Company) {
-                $emailableModules[] = $bean_name;
-            }
+			if (file_exists($beanFiles[$beanList[$bean_name]])) {
+				require_once($beanFiles[$beanList[$bean_name]]);
+				$obj = new $beanList[$bean_name];
+				if ($obj instanceof Person || $obj instanceof Company) {
+					$emailableModules[] = $bean_name;
+				}
+			}
         }
     }
     asort($emailableModules);
