@@ -134,7 +134,9 @@
                 {if $colCounter == '3'}{assign var='datahide' value="xs sm"}{/if}
                 {if $colCounter == '5'}{assign var='datahide' value="md"}{/if}
 
-				{if $colCounter == '0'}
+				{if $params.role_hide}
+					{assign var='hide' value="hide"}
+				{elseif $colCounter == '0'}
 					{assign var='hide' value=""}
 				{elseif $colHeader  == 'NAME' }
 					{assign var='hide' value=""}
@@ -240,7 +242,9 @@
 				{/if}
 				{counter start=0 name="colCounter" print=false assign="colCounter"}
 				{foreach from=$displayColumns key=col item=params}
-					{if $colCounter == '0'}
+					{if $params.role_hide}
+						{assign var='hide' value="hide"}
+					{elseif $colCounter == '0'}
 						{assign var='hide' value=""}
 					{elseif $col  == 'NAME' }
 						{assign var='hide' value=""}

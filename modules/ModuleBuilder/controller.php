@@ -846,6 +846,11 @@ class ModuleBuilderController extends SugarController
         $this->view = 'history' ;
     }
 
+    public function action_customHideLogic()
+    {
+        $this->view = 'customHideLogic' ;
+    }
+
     public function resetmodule()
     {
         $this->view = 'resetmodule';
