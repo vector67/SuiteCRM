@@ -91,10 +91,38 @@ if ($result == null) {
     die("The focus id doesn't exist");
 }
 
-$focus->set_accept_status($current_entity, $_REQUEST['accept_status']);
+if ($currentModule == 'NNB_NNB') {
+	if ($_REQUEST['accept_status'] == 'decline') {
+		if(!isset($_REQUEST['decline_reason'])) {
+			?>
+			<form method="GET" action="">
+				<input type="hidden" name="entryPoint" value="acceptDecline" />
+				<input type="hidden" name="module" value="NNB_NNB" />
+				<input type="hidden" name="user_id" value="<?php echo $_REQUEST['user_id']; ?>" />
+				<input type="hidden" name="record" value="<?php echo $_REQUEST['record']; ?>" />
+				<input type="hidden" name="accept_status" value="decline" />
+				<label for="decline_reason">Reason for declining:</label>
+				<input type="text" name="decline_reason" value="" /><br>
+				<input type="submit" value="Decline" />
+			</form>
+			<?php
+			sugar_cleanup();
+			exit;
+		} else {
+			$focus->set_accept_status($current_entity, $_REQUEST['accept_status'], $_REQUEST['decline_reason']);
+		}
+	} else {
+		$focus->set_accept_status($current_entity, $_REQUEST['accept_status']);
+	}
+}else {
+	$focus->set_accept_status($current_entity, $_REQUEST['accept_status']);
+}
 
 print $app_strings['LBL_STATUS_UPDATED']."<BR><BR>";
-print $app_strings['LBL_STATUS']. " ". $app_list_strings['dom_meeting_accept_status'][$_REQUEST['accept_status']];
+print $app_strings['LBL_STATUS']. " ". $app_list_strings['dom_meeting_accept_status'][$_REQUEST['accept_status']] . "<br>";
+if (isset($_REQUEST['decline_reason'])) {
+	print "Declined reason: ". $_REQUEST['decline_reason'];
+}
 print "<BR><BR>";
 
 print "<a href='?module=$currentModule&action=DetailView&record=$focus->id'>".$app_strings['LBL_MEETING_GO_BACK']."</a><br>";
