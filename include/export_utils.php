@@ -268,6 +268,7 @@ function export($type, $records = null, $members = false, $sample=false)
                         break;
 
                     // Bug 32463 - Properly have multienum field translated into something useful for the client
+                    case 'manyenum':
                     case 'multienum':
             $valueArray = unencodeMultiEnum($value);
 

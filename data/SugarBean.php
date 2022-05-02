@@ -569,6 +569,7 @@ class SugarBean
                             $this->$field = $this->parseDateDefault($value['display_default'], true);
                         }
                         break;
+                    case 'manyenum':
                     case 'multienum':
                         if (empty($value['default']) && !empty($value['display_default'])) {
                             $this->$field = $value['display_default'];

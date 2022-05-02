@@ -128,6 +128,8 @@ class SqlsrvManager extends MssqlManager
         'date' => 'datetime',
         'enum' => 'nvarchar',
         'relate' => 'nvarchar',
+        'manyenum' => 'nvarchar(max)',
+        'Manyenum' => 'nvarchar(max)',
         'multienum' => 'nvarchar(max)',
         'html' => 'nvarchar(max)',
         'emailbody' => 'nvarchar(max)',

@@ -321,7 +321,7 @@ function saveField($field, $id, $module, $value)
     $bean = BeanFactory::getBean($module, $id);
 
     if (is_object($bean) && $bean->id != "") {
-        if ($bean->field_defs[$field]['type'] == "multienum") {
+        if ($bean->field_defs[$field]['type'] == "multienum" || $bean->field_defs[$field]['type'] == "manyenum") {
             $bean->$field = encodeMultienumValue($value);
         } elseif ($bean->field_defs[$field]['type'] == "relate" || $bean->field_defs[$field]['type'] == 'parent') {
             $save_field = $bean->field_defs[$field]['id_name'];
@@ -450,7 +450,7 @@ function formatDisplayValue($bean, $value, $vardef, $method = "save")
     }
 
     //if field is of type multienum.
-    if ($vardef['type'] == "multienum") {
+    if ($vardef['type'] == "multienum" || $vardef['type'] == "manyenum") {
         $value = str_replace("^", "", $value);
 
         $array_values = explode(",", $value);

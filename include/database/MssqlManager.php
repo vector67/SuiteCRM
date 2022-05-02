@@ -142,6 +142,8 @@ class MssqlManager extends DBManager
         'enum' => 'varchar',
         'relate' => 'varchar',
         'multienum' => 'text',
+        'manyenum' => 'text',
+        'Manyenum' => 'text',
         'html' => 'text',
         'emailbody' => 'nvarchar(max)',
         'longhtml' => 'text',

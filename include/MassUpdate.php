@@ -566,6 +566,7 @@ eoq;
                             break;
                         case "enum":
                         case "dynamicenum":
+                        case "manyenum":
                         case "multienum":
                             if (!empty($field['isMultiSelect'])) {
                                 $even = !$even;
@@ -1525,6 +1526,7 @@ EOQ;
                         case "bool":
                         case "enum":
                         case "dynamicenum":
+                        case "manyenum":
                         case "multienum":
                         case "radioenum":
                         case "datetimecombo":
