@@ -52,13 +52,13 @@ $module_menu = array();
 
 
 // Create Project
-if (ACLController::checkAccess('Project', 'edit', true)) {
-    $module_menu[] = array(
-        'index.php?module=Project&action=EditView&return_module=Project&return_action=DetailView',
-        isset($mod_strings['LNK_NEW_PROJECT']) ? $mod_strings['LNK_NEW_PROJECT'] : '',
-        'Create'
-    );
-}
+// if (ACLController::checkAccess('Project', 'edit', true)) {
+    // $module_menu[] = array(
+        // 'index.php?module=Project&action=EditView&return_module=Project&return_action=DetailView',
+        // isset($mod_strings['LNK_NEW_PROJECT']) ? $mod_strings['LNK_NEW_PROJECT'] : '',
+        // 'Create'
+    // );
+// }
 
 
 // Project List

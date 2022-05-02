@@ -42,6 +42,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
  */
 
 
+$module_name = 'Calls';
 
 $subpanel_layout = array(
     //Removed button because this layout def is a component of
@@ -55,6 +56,7 @@ $subpanel_layout = array(
              'widget_class'=>'SubPanelTopSelectButton', 'popup_module' => 'Calls'
                 ),
     ),
+	'where' => '',
     
     'list_fields' => array(
         'object_image'=>array(

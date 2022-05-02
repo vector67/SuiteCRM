@@ -60,7 +60,6 @@ class Project extends SugarBean
     public $assigned_user_name;
     public $modified_by_name;
     public $created_by_name;
-
     public $account_id;
     public $contact_id;
     public $opportunity_id;
@@ -70,11 +69,11 @@ class Project extends SugarBean
     // calculated information
     public $total_estimated_effort;
     public $total_actual_effort;
-
     public $object_name = 'Project';
     public $module_dir = 'Project';
     public $new_schema = true;
     public $table_name = 'project';
+	var $importable = true;
 
     // This is used to retrieve related fields from form posts.
     public $additional_column_fields = array(

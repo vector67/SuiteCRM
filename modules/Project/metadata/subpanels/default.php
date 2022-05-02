@@ -42,12 +42,11 @@ if (!defined('sugarEntry') || !sugarEntry) {
  */
 
 
-
+// These used to be inside top_buttons:
+//   array('widget_class' => 'SubPanelTopCreateButton'),
+//   array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' => 'Accounts'),
 $subpanel_layout = array(
-    'top_buttons' => array(
-        array('widget_class' => 'SubPanelTopCreateButton'),
-        array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' => 'Accounts'),
-    ),
+    'top_buttons' => array(),
 
     'where' => '',
     

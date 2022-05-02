@@ -81,85 +81,6 @@ $layout_defs['Accounts'] = array(
                 ),
             )
         ),
-        'history' => array(
-            'order' => 20,
-            'sort_order' => 'desc',
-            'sort_by' => 'date_entered',
-            'title_key' => 'LBL_HISTORY_SUBPANEL_TITLE',
-            'type' => 'collection',
-            'subpanel_name' => 'history',   //this values is not associated with a physical file.
-            'header_definition_from_subpanel' => 'meetings',
-            'module' => 'History',
-
-            'top_buttons' => array(
-                array('widget_class' => 'SubPanelTopCreateNoteButton'),
-                array('widget_class' => 'SubPanelTopArchiveEmailButton'),
-                array('widget_class' => 'SubPanelTopSummaryButton'),
-                array('widget_class' => 'SubPanelTopFilterButton'),
-            ),
-
-            'collection_list' => array(
-                'tasks' => array(
-                    'module' => 'Tasks',
-                    'subpanel_name' => 'ForHistory',
-                    'get_subpanel_data' => 'tasks',
-                ),
-                'meetings' => array(
-                    'module' => 'Meetings',
-                    'subpanel_name' => 'ForHistory',
-                    'get_subpanel_data' => 'meetings',
-                ),
-                'calls' => array(
-                    'module' => 'Calls',
-                    'subpanel_name' => 'ForHistory',
-                    'get_subpanel_data' => 'calls',
-                ),
-                'notes' => array(
-                    'module' => 'Notes',
-                    'subpanel_name' => 'ForHistory',
-                    'get_subpanel_data' => 'notes',
-                ),
-                'emails' => array(
-                    'module' => 'Emails',
-                    'subpanel_name' => 'ForUnlinkedEmailHistory',
-                    'get_subpanel_data' => 'function:get_emails_by_assign_or_link',
-                    'function_parameters' => array('import_function_file' => 'include/utils.php', 'link' => 'contacts'),
-                    'generate_select' => true,
-                    'get_distinct_data' => true,
-                ),
-            ),
-            'searchdefs' => array(
-                'collection' =>
-                    array(
-                        'name' => 'collection',
-                        'label' => 'LBL_COLLECTION_TYPE',
-                        'type' => 'enum',
-                        'options' => $GLOBALS['app_list_strings']['collection_temp_list'],
-                        'default' => true,
-                        'width' => '10%',
-                    ),
-                'name' =>
-                    array(
-                        'name' => 'name',
-                        'default' => true,
-                        'width' => '10%',
-                    ),
-                'current_user_only' =>
-                    array(
-                        'name' => 'current_user_only',
-                        'label' => 'LBL_CURRENT_USER_FILTER',
-                        'type' => 'bool',
-                        'default' => true,
-                        'width' => '10%',
-                    ),
-                'date_modified' =>
-                    array(
-                        'name' => 'date_modified',
-                        'default' => true,
-                        'width' => '10%',
-                    ),
-            ),
-        ),
         'documents' => array(
             'order' => 25,
             'module' => 'Documents',
@@ -317,13 +238,6 @@ $layout_defs['Accounts'] = array(
             'sort_by' => 'id',
             'title_key' => 'AOS_Contracts',
             'get_subpanel_data' => 'aos_contracts',
-        ),
-        'products_services_purchased' => array(
-            'order' => 104,
-            'module' => 'AOS_Products_Quotes',
-            'subpanel_name' => 'ForAccounts',
-            'get_subpanel_data' => 'function:getProductsServicesPurchasedQuery',
-            'title_key' => 'LBL_PRODUCTS_SERVICES_PURCHASED_SUBPANEL_TITLE',
         ),
         'securitygroups' => array(
             'top_buttons' => array(array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' => 'SecurityGroups', 'mode' => 'MultiSelect'),),
