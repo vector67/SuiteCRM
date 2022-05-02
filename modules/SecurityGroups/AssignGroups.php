@@ -260,7 +260,7 @@ function send_massassign(mode, no_record_txt, start_string, end_string, del) {
 
 </script>
 
-		<form action='index.php' method='post' name='MassAssign_SecurityGroups'  id='MassAssign_SecurityGroups'>
+		<form action='index.php' method='post' name='MassAssign_SecurityGroups'  id='MassAssign_SecurityGroups' style='display: none;'>
 			<input type='hidden' name='action' value='MassAssign' />
 			<input type='hidden' name='module' value='SecurityGroups' />
 			<input type='hidden' name='return_action' value='${action}' />
@@ -274,7 +274,7 @@ function send_massassign(mode, no_record_txt, start_string, end_string, del) {
 		<td style='padding-bottom: 2px;' class='listViewButtons'>
 		<input type='submit' name='Assign' value='${current_module_strings['LBL_ASSIGN']}' onclick="return send_massassign('selected', '{$app_strings['LBL_LISTVIEW_NO_SELECTED']}','${current_module_strings['LBL_ASSIGN_CONFIRM']}','${current_module_strings['LBL_CONFIRM_END']}',0);" class='button'>
 		<input type='submit' name='Remove' value='${current_module_strings['LBL_REMOVE']}' onclick="return send_massassign('selected', '{$app_strings['LBL_LISTVIEW_NO_SELECTED']}','${current_module_strings['LBL_REMOVE_CONFIRM']}','${current_module_strings['LBL_CONFIRM_END']}',1);" class='button'>
-
+	
 
 		</td></tr></table>
 		<table cellpadding='0' cellspacing='0' border='0' width='100%' class='tabForm' id='mass_update_table'>
