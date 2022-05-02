@@ -326,7 +326,7 @@ class Reminder extends Basic
         $popupReminders = BeanFactory::getBean('Reminders')->get_full_list(
             '',
             "reminders.popup = 1 AND (reminders.date_willexecute = -1 OR reminders.date_willexecute BETWEEN "
-                . $dateTimeNowStamp . " AND " . $dateTimeMaxStamp . ")"
+                . $dateTimeNow . " AND " . $dateTimeMax . ")"
         );
 
         if ($popupReminders) {
